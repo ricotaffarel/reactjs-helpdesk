@@ -15,7 +15,7 @@ API Endpoints: The API encompasses the following crucial endpoints:
  - /api/register: Facilitates the registration of new users.
  - /api/logout: Enables authenticated users to log out.
 
- For detailed installation and usage instructions, please refer to the API https://github.com/ricotaffarel/api-help-desk.
+ For detailed installation and usage instructions, please refer to the API https://github.com/ricotaffarel/api-help-desk
 
  ## `Page Login`
  <img src="https://github.com/ricotaffarel/reactjs-helpdesk/blob/master/picture/login.png" />
