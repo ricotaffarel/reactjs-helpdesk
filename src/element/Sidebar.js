@@ -109,7 +109,7 @@ function Sidebar() {
               <Link href="#" className="nav-link">
                 <i className="nav-icon fas fa-tachometer-alt"></i>
                 <p>
-                  Dashboard {user.level}
+                  Dashboard
                   {/* <i className="right fas fa-angle-left"></i> */}
                 </p>
               </Link>
