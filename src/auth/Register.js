@@ -7,6 +7,8 @@ function Register() {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [validation, setValidation] = useState([]);
+    const [submitted, setSubmitted] = useState(false);
+
 
     // routing
     const history = useHistory();
@@ -14,6 +16,13 @@ function Register() {
     const registerHandler = async (e) => {
         e.preventDefault();
         const formData = new FormData();
+        setSubmitted(true);
+        if (email === "" || password === "" || name === "") {
+            setTimeout(() => {
+                setSubmitted(false);
+            }, 2000);
+            return; // Prevent submission if fields are empty
+        }
 
         formData.append('email', email);
         formData.append('password', password);
@@ -23,6 +32,10 @@ function Register() {
             history.push('/');
         }).catch((err) => {
             setValidation(err.response.data);
+            setValidation(err.response.data);
+            setTimeout(() => {
+                setValidation({});
+            }, 2000);
         })
     }
 
@@ -36,14 +49,21 @@ function Register() {
                     <div className="card-body">
                         <p className="login-box-msg">Sign in to start your session</p>
                         {
+                            submitted && (email === "" || password === "" || name === "") && (
+                                <div className="alert alert-info">
+                                    Please fill in both name, email and password fields.
+                                </div>
+                            )
+                        }
+                        {
                             validation.message && (
-                                <div classNameName="alert alert-info">
+                                <div className="alert alert-danger">
                                     {validation.message}
                                 </div>
                             )
                         }
                         <form onSubmit={registerHandler}>
-                        <div className="input-group mb-3">
+                            <div className="input-group mb-3">
                                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="form-control" placeholder="Name" />
                                 <div className="input-group-append">
                                     <div className="input-group-text">

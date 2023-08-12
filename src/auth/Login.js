@@ -6,6 +6,7 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [validation, setValidation] = useState([]);
+    const [submitted, setSubmitted] = useState(false);
 
     // routing
     const history = useHistory();
@@ -18,6 +19,14 @@ function Login() {
     const loginHandler = async (e) => {
         e.preventDefault();
         const formData = new FormData();
+        setSubmitted(true);
+
+        if (email === "" || password === "") {
+            setTimeout(() => {
+                setSubmitted(false);
+            }, 2000);
+            return; // Prevent submission if fields are empty
+        }
 
         formData.append('email', email);
         formData.append('password', password);
@@ -27,6 +36,10 @@ function Login() {
             history.push('/dashboard');
         }).catch((err) => {
             setValidation(err.response.data);
+            setTimeout(() => {
+                setValidation({});
+            }, 2000);
+    
         })
     }
 
@@ -44,8 +57,15 @@ function Login() {
                     <div className="card-body">
                         <p className="login-box-msg">Sign in to start your session</p>
                         {
+                            submitted && (email === "" || password === "") && (
+                                <div className="alert alert-info">
+                                    Please fill in both email and password fields.
+                                </div>
+                            )
+                        }
+                        {
                             validation.message && (
-                                <div classNameName="alert alert-info">
+                                <div className="alert alert-danger">
                                     {validation.message}
                                 </div>
                             )
