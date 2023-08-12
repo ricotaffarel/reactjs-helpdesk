@@ -11,7 +11,7 @@ Frontend: The UI is thoughtfully constructed using the AdminLTE template, ensuri
 Backend: Laravel, a robust PHP framework, empowers the management of RESTful API operations.
 API Endpoints: The API encompasses the following crucial endpoints:
  - /api/user: Facilitates the retrieval of user details.
- - /api/login: Manages user authentication.
+ - /api/login: Manages user authentication
  - /api/register: Facilitates the registration of new users.
  - /api/logout: Enables authenticated users to log out.
  - documentation postman : https://documenter.getpostman.com/view/26984754/2s9Xy5LAAs
