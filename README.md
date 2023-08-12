@@ -14,6 +14,7 @@ API Endpoints: The API encompasses the following crucial endpoints:
  - /api/login: Manages user authentication.
  - /api/register: Facilitates the registration of new users.
  - /api/logout: Enables authenticated users to log out.
+ - documentation postman : https://documenter.getpostman.com/view/26984754/2s9Xy5LAAs
 
  For detailed installation and usage instructions, please refer to the API https://github.com/ricotaffarel/api-help-desk.
 
